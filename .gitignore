@@ -1,0 +1,15 @@
+*/.settings/
+*/target/
+*/.classpath
+*/.project
+*/*.bat
+*/*.DS_Store
+.idea/
+.vscode/
+*.iml
+.DS_Store
+*/lib/
+.factorypath
+**/target/
+**/*.ipr
+**/generated/
