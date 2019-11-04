@@ -41,7 +41,11 @@ public class SignUtil {
 
         paraMap.put(SIGNATURE_NAME, sign);
 
-        return generateQuery(paraMap);
+        return String.format("?accessKeyId=%s&signatureMethod=%s&version=1.0&timestamp=%s&signature=%s",
+                paraMap.get(ACCESS_KEY_NAME),
+                paraMap.get(SIGNATURE_TYPE_NAME),
+                paraMap.get(TIMESTAMP_NAME),
+                paraMap.get(SIGNATURE_NAME));
     }
 
     private static String mapToString(Map<String, String> map) {
@@ -58,22 +62,5 @@ public class SignUtil {
         baseStr = baseStr.substring(0, baseStr.length()-1);
 
         return baseStr;
-    }
-
-    private static String generateQuery(Map<String, String> paraMap){
-        StringBuilder retBuilder = new StringBuilder("?accessKeyId=");
-        retBuilder.append(paraMap.get(ACCESS_KEY_NAME));
-        retBuilder.append("&");
-        retBuilder.append("signatureMethod=");
-        retBuilder.append(paraMap.get(SIGNATURE_TYPE_NAME));
-        retBuilder.append("&");
-        retBuilder.append("version=1.0&");
-        retBuilder.append("timestamp=");
-        retBuilder.append(paraMap.get(TIMESTAMP_NAME));
-        retBuilder.append("&");
-        retBuilder.append("signature=");
-        retBuilder.append(paraMap.get(SIGNATURE_NAME));
-
-        return retBuilder.toString();
     }
 }
