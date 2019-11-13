@@ -38,8 +38,7 @@ The following code example shows several steps to create a Graph **Client**  usi
 ```java
 import com.alibaba.maxgraph.credentials.CredentialsManager;
 import com.alibaba.maxgraph.io.MaxGraphIORegistry;
-import org.apache.tinkerpop.gremlin.driver.Client;
-import org.apache.tinkerpop.gremlin.driver.Cluster;
+import org.apache.tinkerpop.gremlin.driver.*;
 import org.apache.tinkerpop.gremlin.driver.MessageSerializer;
 import org.apache.tinkerpop.gremlin.driver.ser.GryoMessageSerializerV1d0;
 import org.apache.tinkerpop.gremlin.structure.io.gryo.GryoMapper;
@@ -74,6 +73,12 @@ public class GraphComputeJavaSDKExample {
             throw new IllegalArgumentException("build credentials fail", e);
         }
         client = cluster.connect();
+      	String query="your Gremlin Query";
+        ResultSet resultSet = client.submit("g.V()");
+      	...
+        //don't forget close the connection
+        client.close();
+        cluster.close();
     }
 }
 ```
