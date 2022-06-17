@@ -23,7 +23,7 @@
   <properties>
     <guava.version>23.0</guava.version>
     <tinkerpop.version>3.4.2</tinkerpop.version>
-    <fastjson.version>1.2.60</fastjson.version>
+    <fastjson.version>1.2.83</fastjson.version>
   </properties>
 
   <dependencies>
